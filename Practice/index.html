@@ -1,0 +1,76 @@
+<!--1) Click event -->
+<button id="myButton">Click Me</button>
+<script>
+  const button = document.getElementById("myButton");
+  button.addEventListener("click", function() {
+    alert("Button clicked!");
+  });
+</script>
+
+<!-- 2)Mouseover and Mouseout Events: -->
+<div id="myElement">Hover over me</div>
+<script>
+  const element = document.getElementById("myElement");
+  element.addEventListener("mouseover", function() {
+    element.style.backgroundColor = "lightblue";
+  });
+  element.addEventListener("mouseout", function() {
+    element.style.backgroundColor = "white";
+  });
+</script>
+
+
+<!--3) Keydown Event: -->
+
+<input id="myInput" type="text">
+<p id="keyDisplay"></p>
+<script>
+  const input = document.getElementById("myInput");
+  const keyDisplay = document.getElementById("keyDisplay");
+  input.addEventListener("keydown", function(event) {
+    keyDisplay.textContent = `Key Pressed: ${event.key}`;
+  });
+</script>
+
+
+<!--4) Form Submit Event: -->
+<form id="myForm">
+    <input type="text" name="inputField">
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      alert("Form submitted (but prevented)!");
+    });
+  </script>
+
+  
+  <!--5) Load Event: -->
+
+  <script>
+    window.addEventListener("load", function() {
+      alert("Page loaded!");
+    });
+  </script>
+
+  <!--6) Custom Event: -->
+
+  <button id="customEventButton">Trigger Custom Event</button>
+<script>
+  const customEventButton = document.getElementById("customEventButton");
+
+  // Create a custom event
+  const customEvent = new Event("myCustomEvent");
+
+  customEventButton.addEventListener("click", function() {
+    customEventButton.dispatchEvent(customEvent); // Trigger the custom event
+  });
+
+  customEventButton.addEventListener("myCustomEvent", function() {
+    alert("Custom event triggered!");
+  });
+</script>
+
+  
